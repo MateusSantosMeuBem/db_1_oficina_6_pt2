@@ -141,3 +141,35 @@ def create_super_user(
             consulta.close()
     except Exception as e:
         print(e)
+
+# 7_C - Mateus
+def create_user(
+    connection
+):
+
+    from getpass import getpass
+
+    try:
+        db_user: str = input('Digite o nome do usuário: ')
+        pass_01: str = getpass('Digite a senha do usuário: ')
+        pass_02: str = getpass('Digite a senha novamente: ')
+
+        if pass_01 == pass_02:
+
+            codigosSQL = [
+                f'CREATE USER IF NOT EXISTS "{db_user}"@"%" IDENTIFIED BY "{pass_01}"',
+                'GRANT ALL PRIVILEGES ON oficina6_2.* TO "todopoderoso"@"%"'
+            ]
+
+            for codigoSQL in codigosSQL:
+                consulta = connection.cursor()
+                consulta.execute(codigoSQL)
+                connection.commit()
+                consulta.close()
+
+            del db_user, pass_01, pass_02
+        else:
+            raise Exception('A senhas não são iguais!')
+        
+    except Exception as e:
+        print(e)
