@@ -1,4 +1,5 @@
 options = [
+    'Criar <todopoderoso>',
     'Mostrar livros com mais de 1 autor',
     'Mostrar livros com mais de 3 estrelas',
     'Mostrar livros vendidos no ano',

@@ -122,3 +122,22 @@ def show_sections(
     print()
     
     consulta.close()
+
+# 7_A - Mateus
+def create_super_user(
+    connection
+):
+
+    codigosSQL = [
+        'CREATE USER IF NOT EXISTS "todopoderoso"@"%" IDENTIFIED BY "3521"',
+        'GRANT ALL PRIVILEGES ON oficina6_2.* TO "todopoderoso"@"%"'
+    ]
+
+    try:
+        for codigoSQL in codigosSQL:
+            consulta = connection.cursor()
+            consulta.execute(codigoSQL)
+            connection.commit()
+            consulta.close()
+    except Exception as e:
+        print(e)

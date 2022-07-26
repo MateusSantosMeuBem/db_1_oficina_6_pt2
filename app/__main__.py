@@ -1,5 +1,6 @@
 from main.model import connector
 from main.services.database import (
+    create_super_user,
     show_books_over_1_author,
     show_books_rating_over_3,
     show_sells_by_year,
@@ -14,6 +15,7 @@ from main.utils import (
 )
 
 manager = [
+    create_super_user,
     show_books_over_1_author,
     show_books_rating_over_3,
     show_sells_by_year,
