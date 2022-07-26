@@ -158,7 +158,7 @@ def create_user(
 
             codigosSQL = [
                 f'CREATE USER IF NOT EXISTS "{db_user}"@"%" IDENTIFIED BY "{pass_01}"',
-                'GRANT ALL PRIVILEGES ON oficina6_2.* TO "todopoderoso"@"%"'
+                f'GRANT ALL PRIVILEGES ON oficina6_2.* TO "{db_user}"@"%"'
             ]
 
             for codigoSQL in codigosSQL:
